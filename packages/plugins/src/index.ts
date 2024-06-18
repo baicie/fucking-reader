@@ -1,3 +1,5 @@
+import { BookPlugin } from './plugin'
+
 class PluginManager {
   private plugins: Map<string, BookPlugin> = new Map()
 

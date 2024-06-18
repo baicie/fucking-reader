@@ -1,3 +1,11 @@
+import {
+  BookPlugin,
+  TableOfContents,
+  RenderedContent,
+  RenderOptions,
+  Chapter,
+} from '../plugin'
+
 class TxtPlugin implements BookPlugin {
   format = 'txt'
 
