@@ -1,4 +1,10 @@
 import { PDFDocument } from 'pdf-lib'
+import {
+  BookPlugin,
+  RenderOptions,
+  RenderedContent,
+  TableOfContents,
+} from '../plugin'
 
 class PdfPlugin implements BookPlugin {
   format = 'pdf'

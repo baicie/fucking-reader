@@ -1,4 +1,10 @@
 import Epub from 'epubjs'
+import {
+  BookPlugin,
+  TableOfContents,
+  RenderedContent,
+  RenderOptions,
+} from '../plugin'
 
 class EpubPlugin implements BookPlugin {
   format = 'epub'
