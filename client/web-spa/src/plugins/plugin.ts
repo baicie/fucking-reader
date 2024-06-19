@@ -1,7 +1,11 @@
+import { Book } from 'epubjs'
+
 export interface BookPlugin {
   format: string
+  book?: Book
   parseTableOfContents(file: File): Promise<TableOfContents>
   renderContent(file: File, options: RenderOptions): Promise<RenderedContent>
+  parse(file: File): Promise<Book>
 }
 
 export interface TableOfContents {

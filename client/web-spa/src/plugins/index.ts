@@ -11,3 +11,4 @@ export class PluginManager {
     return this.plugins.get(format)
   }
 }
+// 需要一个cache plugin

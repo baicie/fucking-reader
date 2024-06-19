@@ -1,4 +1,4 @@
-import Epub from 'epubjs'
+import Epub, { Book } from 'epubjs'
 import {
   BookPlugin,
   TableOfContents,
@@ -8,6 +8,21 @@ import {
 
 export class EpubPlugin implements BookPlugin {
   format = 'epub'
+  book?: Book
+
+  constructor() {}
+  async parse(file: File): Promise<Book> {
+    const reader = new FileReader()
+    reader.readAsArrayBuffer(file)
+    return new Promise((resolve, reject) => {
+      reader.onload = () => {
+        const book = Epub(reader.result as ArrayBuffer)
+        resolve(book)
+        this.book = book
+      }
+      reader.onerror = reject
+    })
+  }
 
   async parseTableOfContents(file: File): Promise<TableOfContents> {
     const reader = new FileReader()
