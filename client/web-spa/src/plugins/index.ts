@@ -1,6 +1,6 @@
 import { BookPlugin } from './plugin'
 
-class PluginManager {
+export class PluginManager {
   private plugins = new Map<string, BookPlugin>()
 
   registerPlugin(plugin: BookPlugin) {

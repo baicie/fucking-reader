@@ -34,6 +34,8 @@ export default tseslint.config(
       parserOptions: {
         sourceType: 'module',
         ecmaVersion: 2022,
+        project: ['./tsconfig.json', './packages/*/tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.es2021,
@@ -131,7 +133,10 @@ export default tseslint.config(
 
   {
     name: 'main/client',
-    files: ['servers/client/**/*.{ts,tsx,js,jsx}'],
+    files: [
+      'servers/client/**/*.{ts,tsx,js,jsx}',
+      'client/web-spa/**/*.{ts,tsx,js,jsx}',
+    ],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -148,7 +153,9 @@ export default tseslint.config(
       '@typescript-eslint': tsEslint,
       'react-refresh': reactRefresh,
     },
-    rules: {},
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
     settings: {
       react: {
         version: 'detect',
